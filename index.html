@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Moon Enterprises, Baniamari, Balajan, Dhubri. Take an SBI, Assam Gramin Bank or Airtel Payments Bank CSP ID, or the APDCL Easypay main ID.">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Moon Enterprises</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hind:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: teal top bar, big headline, four ID cards, three-step path, application slip that opens WhatsApp, then contact and map. */
+:root {
+  --bg: #f1f5f7;
+  --surface: #ffffff;
+  --fg: #10222f;
+  --muted: #4d606c;
+  --line: #d3dde3;
+  --brand: #0f4c5c;
+  --brand-fg: #ffffff;
+  --accent: #f2a900;
+  --wa: #17784a;
+  --wa-fg: #ffffff;
+  --danger: #b3261e;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Hind", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b151c;
+    --surface: #132430;
+    --fg: #e7f0f4;
+    --muted: #9fb2bd;
+    --line: #26404e;
+    --brand: #123f4c;
+    --brand-fg: #ffffff;
+    --accent: #f5b72e;
+    --wa: #2bb673;
+    --wa-fg: #03200f;
+    --danger: #ff8a80;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b151c;
+  --surface: #132430;
+  --fg: #e7f0f4;
+  --muted: #9fb2bd;
+  --line: #26404e;
+  --brand: #123f4c;
+  --brand-fg: #ffffff;
+  --accent: #f5b72e;
+  --wa: #2bb673;
+  --wa-fg: #03200f;
+  --danger: #ff8a80;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.bar { background: var(--brand); color: var(--brand-fg); padding-block: 12px; padding-inline: 16px; }
+.bar-in { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.bar b { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; letter-spacing: .01em; }
+.bar span { font-family: var(--font-mono); font-size: .8rem; opacity: .9; }
+
+main { max-width: 960px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 48px; display: flex; flex-direction: column; gap: 48px; }
+
+.hero { display: flex; flex-direction: column; gap: 16px; }
+.hero .tag { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 8.5vw, 3.8rem); line-height: 1.04; margin: 0; text-wrap: balance; }
+h1 em { font-style: normal; box-shadow: inset 0 -.32em 0 var(--accent); }
+.hero p { margin: 0; max-width: 36em; color: var(--muted); font-size: 1.1rem; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding-inline: 20px; border-radius: 8px; font: 600 1rem var(--font-body); text-decoration: none; cursor: pointer; border: 2px solid transparent; }
+.btn-wa { background: var(--wa); color: var(--wa-fg); }
+.btn-line { border-color: var(--brand); color: var(--fg); background: transparent; }
+.btn-small { min-height: 40px; padding-inline: 14px; font-size: .95rem; }
+.btn:hover { filter: brightness(1.08); }
+
+h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 5vw, 2.1rem); margin: 0 0 6px; text-wrap: balance; }
+.sub { margin: 0 0 20px; color: var(--muted); }
+
+.board { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .board { grid-template-columns: 1fr 1fr; } }
+.svc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.svc .kind { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.svc h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; margin: 0; line-height: 1.2; }
+.svc p { margin: 0; }
+.svc .push { flex: 1; }
+.svc .btn { align-self: flex-start; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: 1fr; counter-reset: s; }
+@media (min-width: 720px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.steps li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.steps li::before { content: "Step " counter(s); font-family: var(--font-mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.steps b { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; line-height: 1.25; }
+.steps span { color: var(--muted); }
+
+.slip { background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--brand); border-radius: 8px; padding: 22px 18px; }
+.slip-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; margin-bottom: 18px; border-bottom: 2px dashed var(--line); }
+form { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { form { grid-template-columns: 1fr 1fr; } .full { grid-column: 1 / -1; } }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+label, .legend { font-weight: 600; font-size: .95rem; }
+.opt { font-weight: 400; color: var(--muted); }
+input[type="text"], input[type="tel"], textarea {
+  width: 100%; font: 400 1rem var(--font-body); color: var(--fg); background: var(--bg);
+  border: 1.5px solid var(--line); border-radius: 8px; padding: 11px 12px; min-height: 48px;
+}
+textarea { min-height: 96px; resize: vertical; }
+input[aria-invalid="true"] { border-color: var(--danger); }
+.err { color: var(--danger); font-size: .9rem; min-height: 1.2em; margin: 0; }
+.choices { display: flex; gap: 10px; flex-wrap: wrap; }
+.choices label { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; border: 1.5px solid var(--line); border-radius: 8px; padding: 10px 14px; min-height: 48px; cursor: pointer; background: var(--bg); min-width: 0; }
+.choices input { width: 18px; height: 18px; accent-color: var(--brand); flex: none; }
+.safe { background: var(--bg); border-left: 4px solid var(--accent); padding: 12px 14px; border-radius: 0 8px 8px 0; font-size: .95rem; }
+.send { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.send .row { display: flex; gap: 10px; flex-wrap: wrap; }
+.status { margin: 0; color: var(--muted); font-size: .95rem; min-height: 1.4em; }
+
+.contact { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .contact { grid-template-columns: 1fr 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card h3 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; }
+.num { font-family: var(--font-mono); font-size: 1.5rem; letter-spacing: .04em; user-select: all; }
+.card .row { display: flex; gap: 10px; flex-wrap: wrap; }
+address { font-style: normal; font-size: 1.1rem; }
+
+footer { border-top: 1px solid var(--line); padding-block: 20px; padding-inline: 16px; text-align: center; color: var(--muted); font-size: .88rem; }
+footer p { max-width: 44em; margin: 4px auto; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+</head>
+<body>
+<div class="bar"><div class="bar-in"><b>Moon Enterprises</b><span>Baniamari, Balajan, Dhubri</span></div></div>
+
+<main>
+  <section class="hero">
+    <div class="tag">CSP IDs for your own service point</div>
+    <h1>Take a CSP ID and <em>start serving</em> your own customers.</h1>
+    <p>Moon Enterprises gives CSP IDs to people who want to run a service point. Pick the ID you want, send your details, and we will contact you on WhatsApp.</p>
+    <div class="cta">
+      <a class="btn btn-wa" id="heroWa" target="_blank" rel="noopener" href="https://wa.me/918724841780">Chat on WhatsApp</a>
+      <a class="btn btn-line" href="#apply">Apply for an ID</a>
+    </div>
+  </section>
+
+  <section id="ids">
+    <h2>IDs we give</h2>
+    <p class="sub">Tap an ID to start your application.</p>
+    <ul class="board" id="board"></ul>
+  </section>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="sub">From your first message to your first customer.</p>
+    <ol class="steps">
+      <li><b>Send your details</b><span>Fill the application below. WhatsApp opens with your message ready to send.</span></li>
+      <li><b>We contact you</b><span>We reply on WhatsApp or call you, and explain what is needed for the ID you chose.</span></li>
+      <li><b>Start your service</b><span>Once your ID is ready, you serve your own customers from your point.</span></li>
+    </ol>
+  </section>
+
+  <section id="apply">
+    <h2>Apply for an ID</h2>
+    <p class="sub">Fill in the slip. It opens WhatsApp with your details written out, ready to send.</p>
+    <div class="slip">
+      <div class="slip-head"><span>ID application</span><span>Moon Enterprises</span></div>
+      <form id="slipForm" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" autocomplete="name" placeholder="Full name">
+          <p class="err" id="e-name"></p>
+        </div>
+        <div class="field">
+          <label for="mobile">Mobile number</label>
+          <input type="tel" id="mobile" inputmode="numeric" maxlength="10" autocomplete="tel-national" placeholder="10-digit number">
+          <p class="err" id="e-mobile"></p>
+        </div>
+        <div class="field full">
+          <span class="legend" id="idsLabel">Which ID do you want? <span class="opt">(choose one or more)</span></span>
+          <div class="choices" id="idChoices" role="group" aria-labelledby="idsLabel"></div>
+          <p class="err" id="e-ids"></p>
+        </div>
+        <div class="field">
+          <label for="area">Village or area where you will work</label>
+          <input type="text" id="area" placeholder="Village, town or area">
+          <p class="err" id="e-area"></p>
+        </div>
+        <div class="field">
+          <span class="legend" id="placeLabel">Do you have a shop or place to work from?</span>
+          <div class="choices" role="radiogroup" aria-labelledby="placeLabel">
+            <label><input type="radio" name="place" value="Yes, I have a shop or place" checked> Yes</label>
+            <label><input type="radio" name="place" value="Not yet, I am planning one"> Not yet</label>
+          </div>
+        </div>
+        <div class="field full">
+          <label for="details">Anything else we should know <span class="opt">(optional)</span></label>
+          <textarea id="details" placeholder="Example: I already run a small shop, or I want to start next month"></textarea>
+        </div>
+        <div class="field full">
+          <span class="legend" id="prefLabel">How should we reply?</span>
+          <div class="choices" role="radiogroup" aria-labelledby="prefLabel">
+            <label><input type="radio" name="pref" value="WhatsApp message" checked> WhatsApp message</label>
+            <label><input type="radio" name="pref" value="Phone call"> Phone call</label>
+            <label><input type="radio" name="pref" value="I will visit the shop"> I will visit the shop</label>
+          </div>
+        </div>
+        <div class="full safe">Do not type your Aadhaar number, PAN, bank account number, ATM PIN or any OTP here. We will tell you what to bring and how to share documents safely.</div>
+        <div class="full send">
+          <a class="btn btn-wa" id="sendWa" target="_blank" rel="noopener" href="https://wa.me/918724841780">Send on WhatsApp</a>
+          <p class="status" id="status" aria-live="polite"></p>
+          <div class="row">
+            <button type="button" class="btn btn-line btn-small" id="copyMsg">Copy message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Find us</h2>
+    <p class="sub">Talk to us directly or visit the shop.</p>
+    <div class="contact">
+      <div class="card">
+        <h3>WhatsApp and phone</h3>
+        <div class="num" id="phone">8724841780</div>
+        <div class="row">
+          <a class="btn btn-wa btn-small" target="_blank" rel="noopener" href="https://wa.me/918724841780">Open WhatsApp</a>
+          <a class="btn btn-line btn-small" href="tel:+918724841780">Call</a>
+          <button type="button" class="btn btn-line btn-small" id="copyNum">Copy number</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Shop address</h3>
+        <address>Moon Enterprises<br>Baniamari, Balajan<br>Dhubri, Assam</address>
+        <div class="row">
+          <a class="btn btn-line btn-small" target="_blank" rel="noopener" href="https://maps.app.goo.gl/ih4Tucuxi1F3moww6">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Moon Enterprises is an independent service provider. Bank, payment and company names belong to their respective owners.</p>
+  <p>Requirements for each ID can change. Please confirm with us before you apply or visit.</p>
+</footer>
+
+<script>
+(function () {
+  var WA = "918724841780";
+  var IDS = [
+    { id: "SBI CSP", kind: "Banking", title: "SBI CSP", text: "Take an SBI CSP ID and offer SBI banking services to customers from your own service point." },
+    { id: "Assam Gramin Bank CSP", kind: "Banking", title: "Assam Gramin Bank CSP", text: "Take an Assam Gramin Bank CSP ID and serve customers who bank with Assam Gramin Bank." },
+    { id: "Airtel Payments Bank CSP", kind: "Banking", title: "Airtel Payments Bank CSP", text: "Take an Airtel Payments Bank CSP ID and serve Airtel Payments Bank customers from your point." },
+    { id: "APDCL Easypay", kind: "Bill payment", title: "APDCL Easypay", text: "Take the APDCL Easypay main ID and collect electricity bill payments from your customers." }
+  ];
+
+  var board = document.getElementById("board");
+  var choices = document.getElementById("idChoices");
+  var boxes = [];
+  IDS.forEach(function (s, i) {
+    var li = document.createElement("li");
+    li.className = "svc";
+    li.innerHTML = '<span class="kind"></span><h3></h3><p></p><span class="push"></span><a class="btn btn-line btn-small" href="#apply">Apply for this ID</a>';
+    li.querySelector(".kind").textContent = s.kind;
+    li.querySelector("h3").textContent = s.title;
+    li.querySelector("p").textContent = s.text;
+    li.querySelector("a").addEventListener("click", function () {
+      boxes.forEach(function (b) { b.checked = (b.value === s.id); });
+      refresh();
+      setErr("ids", "");
+      setTimeout(function () { var n = document.getElementById("name"); if (n) n.focus({ preventScroll: true }); }, 350);
+    });
+    board.appendChild(li);
+
+    var lab = document.createElement("label");
+    var cb = document.createElement("input");
+    cb.type = "checkbox"; cb.value = s.id; cb.id = "id-" + i; cb.name = "ids";
+    lab.setAttribute("for", cb.id);
+    lab.appendChild(cb);
+    lab.appendChild(document.createTextNode(" " + s.title));
+    choices.appendChild(lab);
+    boxes.push(cb);
+  });
+
+  var f = {
+    name: document.getElementById("name"),
+    mobile: document.getElementById("mobile"),
+    area: document.getElementById("area"),
+    details: document.getElementById("details")
+  };
+  var sendWa = document.getElementById("sendWa");
+  var status = document.getElementById("status");
+
+  function radio(name) {
+    var r = document.querySelector('input[name="' + name + '"]:checked');
+    return r ? r.value : "";
+  }
+  function chosen() {
+    return boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.value; });
+  }
+  function message() {
+    var c = chosen();
+    var lines = [
+      "Hello Moon Enterprises,",
+      "I want to apply for an ID.",
+      "ID wanted: " + (c.length ? c.join(", ") : "-"),
+      "Name: " + (f.name.value.trim() || "-"),
+      "Mobile: " + (f.mobile.value.trim() || "-"),
+      "Area where I will work: " + (f.area.value.trim() || "-"),
+      "Shop or place: " + radio("place")
+    ];
+    if (f.details.value.trim()) lines.push("Details: " + f.details.value.trim());
+    lines.push("Reply by: " + radio("pref"));
+    return lines.join("\n");
+  }
+  function refresh() {
+    sendWa.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(message());
+  }
+  function setErr(key, msg) {
+    document.getElementById("e-" + key).textContent = msg;
+    if (f[key]) f[key].setAttribute("aria-invalid", msg ? "true" : "false");
+  }
+  function validate() {
+    var bad = null;
+    var n = f.name.value.trim();
+    setErr("name", n.length < 2 ? "Enter your name." : "");
+    if (n.length < 2) bad = bad || f.name;
+    var m = f.mobile.value.trim();
+    var okM = /^[6-9][0-9]{9}$/.test(m);
+    setErr("mobile", okM ? "" : "Enter a 10-digit mobile number.");
+    if (!okM) bad = bad || f.mobile;
+    var okI = chosen().length > 0;
+    setErr("ids", okI ? "" : "Choose at least one ID.");
+    if (!okI) bad = bad || boxes[0];
+    var a = f.area.value.trim();
+    setErr("area", a.length < 2 ? "Enter the village or area where you will work." : "");
+    if (a.length < 2) bad = bad || f.area;
+    return bad;
+  }
+
+  var form = document.getElementById("slipForm");
+  ["input", "change"].forEach(function (ev) {
+    form.addEventListener(ev, function () { refresh(); status.textContent = ""; });
+  });
+  f.mobile.addEventListener("input", function () { f.mobile.value = f.mobile.value.replace(/[^0-9]/g, ""); refresh(); });
+
+  sendWa.addEventListener("click", function (e) {
+    var bad = validate();
+    if (bad) {
+      e.preventDefault();
+      status.textContent = "Please fix the highlighted fields.";
+      bad.focus();
+      return;
+    }
+    refresh();
+    status.textContent = "WhatsApp is opening with your application. Press send in WhatsApp to deliver it.";
+  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    sendWa.click();
+  });
+
+  function copy(text, done) {
+    function fallback() {
+      var t = document.createElement("textarea");
+      t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); done(true); } catch (x) { done(false); }
+      document.body.removeChild(t);
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, fallback);
+    } catch (x) { fallback(); }
+  }
+  document.getElementById("copyMsg").addEventListener("click", function () {
+    copy(message(), function (ok) {
+      status.textContent = ok ? "Message copied. Paste it into WhatsApp." : "Could not copy. Select the details and copy them manually.";
+    });
+  });
+  var cn = document.getElementById("copyNum");
+  cn.addEventListener("click", function () {
+    copy("8724841780", function (ok) {
+      cn.textContent = ok ? "Copied" : "Select the number above";
+      setTimeout(function () { cn.textContent = "Copy number"; }, 2000);
+    });
+  });
+
+  refresh();
+})();
+</script>
+
+</body>
+</html>
